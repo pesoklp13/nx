@@ -1,4 +1,4 @@
-import { UnitTestRunner } from '../../utils/test-runners';
+import { UnitTestRunner } from '@nrwl/workspace/src/utils/test-runners';
 import { Linter } from '@nrwl/workspace';
 
 export interface Schema {

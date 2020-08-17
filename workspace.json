@@ -334,6 +334,69 @@
         }
       }
     },
+    "gauge": {
+      "root": "packages/gauge",
+      "sourceRoot": "packages/gauge",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "packages/gauge/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build-base": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "build/packages/gauge",
+            "tsConfig": "packages/gauge/tsconfig.lib.json",
+            "packageJson": "packages/gauge/package.json",
+            "main": "packages/gauge/index.ts",
+            "updateBuildableProjectDepsInPackageJson": false,
+            "assets": [
+              {
+                "input": "packages/gauge",
+                "glob": "**/files/**",
+                "output": "/"
+              },
+              {
+                "input": "packages/gauge",
+                "glob": "**/files/**/.gitkeep",
+                "output": "/"
+              },
+              {
+                "input": "packages/gauge",
+                "glob": "**/*.json",
+                "output": "/"
+              },
+              {
+                "input": "packages/gauge",
+                "glob": "**/*.js",
+                "output": "/"
+              },
+              "LICENSE"
+            ]
+          }
+        },
+        "build": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": ["build/packages/gauge"],
+          "options": {
+            "commands": [
+              {
+                "command": "nx build-base gauge"
+              },
+              {
+                "command": "node ./scripts/copy-readme.js gauge"
+              }
+            ],
+            "parallel": false
+          }
+        }
+      }
+    },
     "jest": {
       "root": "packages/jest",
       "sourceRoot": "packages/jest",
@@ -1375,6 +1438,22 @@
         }
       }
     },
+    "e2e-gauge": {
+      "root": "e2e/gauge",
+      "sourceRoot": "e2e/gauge",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "e2e/gauge/jest.config.js",
+            "passWithNoTests": true,
+            "runInBand": true
+          }
+        }
+      }
+    },
     "e2e-jest": {
       "root": "e2e/jest",
       "sourceRoot": "e2e/jest",
@@ -1531,6 +1610,11 @@
     },
     "@nrwl/cypress": {
       "cypress-project": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/gauge": {
+      "gauge-project": {
         "linter": "eslint"
       }
     },

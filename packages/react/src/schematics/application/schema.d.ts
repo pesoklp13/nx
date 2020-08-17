@@ -1,6 +1,10 @@
 import { Linter } from '@nrwl/workspace';
 import { SupportedStyles } from 'packages/react/typings/style';
 import { Path } from '@angular-devkit/core';
+import {
+  E2eTestRunner,
+  UnitTestRunner,
+} from '@nrwl/workspace/src/utils/test-runners';
 
 export interface Schema {
   name: string;
@@ -8,9 +12,9 @@ export interface Schema {
   skipFormat: boolean;
   directory?: string;
   tags?: string;
-  unitTestRunner: 'jest' | 'none';
+  unitTestRunner: Exclude<UnitTestRunner, typeof UnitTestRunner.Karma>;
   babelJest: boolean;
-  e2eTestRunner: 'cypress' | 'none';
+  e2eTestRunner: E2eTestRunner;
   linter: Linter;
   pascalCaseFiles?: boolean;
   classComponent?: boolean;

@@ -21,7 +21,10 @@ import {
   rxjsVersion,
 } from '../../utils/versions';
 import { Schema } from './schema';
-import { E2eTestRunner, UnitTestRunner } from '../../utils/test-runners';
+import {
+  E2eTestRunner,
+  UnitTestRunner,
+} from '@nrwl/workspace/src/utils/test-runners';
 import { stripIndents } from '@angular-devkit/core/src/utils/literals';
 
 const updateDependencies = addDepsToPackageJson(

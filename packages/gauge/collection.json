@@ -1,0 +1,19 @@
+{
+  "name": "Nx Gauge",
+  "version": "0.1",
+  "schematics": {
+    "init": {
+      "factory": "./src/schematics/init/init",
+      "schema": "./src/schematics/init/schema.json",
+      "description": "Initialize the @nrwl/gauge plugin",
+      "aliases": ["ng-add"],
+      "hidden": true
+    },
+    "gauge-project": {
+      "factory": "./src/schematics/gauge-project/gauge-project",
+      "schema": "./src/schematics/gauge-project/schema.json",
+      "description": "Add a Gauge E2E Project",
+      "hidden": true
+    }
+  }
+}

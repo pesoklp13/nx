@@ -1,4 +1,8 @@
 import { externalSchematic, Rule } from '@angular-devkit/schematics';
+import {
+  E2eTestRunner,
+  UnitTestRunner,
+} from '@nrwl/workspace/src/utils/test-runners';
 
 /**
  * Calls init _if_ the package does not already exist
@@ -6,9 +10,12 @@ import { externalSchematic, Rule } from '@angular-devkit/schematics';
 export function addPackageWithInit(
   packageName: string,
   testRunners: {
-    unitTestRunner: 'jest' | 'none';
-    e2eTestRunner?: 'cypress' | 'none';
-  } = { unitTestRunner: 'jest', e2eTestRunner: 'cypress' }
+    unitTestRunner: UnitTestRunner;
+    e2eTestRunner?: E2eTestRunner;
+  } = {
+    unitTestRunner: UnitTestRunner.Jest,
+    e2eTestRunner: E2eTestRunner.Cypress,
+  }
 ): Rule {
   return externalSchematic(packageName, 'init', { ...testRunners });
 }

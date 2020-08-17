@@ -45,6 +45,10 @@
       "tags": [],
       "implicitDependencies": ["workspace"]
     },
+    "gauge": {
+      "tags": [],
+      "implicitDependencies": ["workspace"]
+    },
     "jest": {
       "tags": [],
       "implicitDependencies": ["workspace"]
@@ -122,6 +126,10 @@
     "e2e-cypress": {
       "tags": [],
       "implicitDependencies": ["cypress"]
+    },
+    "e2e-gauge": {
+      "tags": [],
+      "implicitDependencies": ["gauge"]
     },
     "e2e-jest": {
       "tags": [],

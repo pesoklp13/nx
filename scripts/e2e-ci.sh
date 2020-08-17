@@ -13,7 +13,7 @@ elif [ "$1" == "3" ]; then
 
 elif [ "$1" == "4" ]; then
   export SELECTED_CLI=nx
-  ts-node --project scripts/tsconfig.e2e.json ./scripts/e2e.ts e2e-cypress,e2e-jest,e2e-nx-plugin affected
+  ts-node --project scripts/tsconfig.e2e.json ./scripts/e2e.ts e2e-cypress,e2e-gauge,e2e-jest,e2e-nx-plugin affected
 
 elif [ "$1" == "5" ]; then
   export SELECTED_CLI=nx
